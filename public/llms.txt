@@ -1,0 +1,27 @@
+# Ajayi Enitan Fiyinfoluwa — Frontend Developer & Web Developer
+
+Ajayi Enitan Fiyinfoluwa is an intermediate Frontend Developer and Web Developer based in Lagos, Nigeria. She specializes in building modern, responsive web applications, interactive React user interfaces, and dynamic web solutions using PHP, MySQL, and REST APIs.
+
+## Primary Focus Areas
+- Frontend Engineering & UI/UX (React, JavaScript ES6+, HTML5, CSS3, Bootstrap 5)
+- API Integration & Dynamic Web Apps (RESTful APIs, JSON, Asynchronous Data Fetching)
+- Backend & Database Integration (PHP, MySQL, CRUD Operations, Form Handling)
+- Design & Prototyping (Canva Wireframes, Figma to Code, Cross-Browser Optimization)
+
+## Key Projects
+- NovaMart: Responsive modern e-commerce web platform with product filtering, dynamic cart state management, and PHP backend order processing.
+- PulseTrack: Interactive healthcare appointment and vital statistics monitoring dashboard featuring Chart.js analytics and REST API data feeds.
+- FlowTask: Collaborative task management platform with customizable workflow boards and persistent PHP/MySQL storage.
+- SwiftNews & Weather Portal: Fast, API-driven information portal aggregating live multi-service headlines with instant search.
+
+## Career & Experience
+- Apex Innovations & Tech Labs: Frontend Developer Intern (Lagos, Nigeria) — React, JavaScript, REST APIs, Bootstrap
+- Freelance & Digital Solutions: Web Developer (Contract / Projects) — HTML5, CSS3, PHP, MySQL, Bootstrap
+- Student Tech Society & Academic Projects: Web Projects Lead & Peer Mentor
+
+## Verified Contact & Profiles
+- Site: https://enitan-ajayi.dev
+- GitHub: https://github.com/enitan-ajayi
+- LinkedIn: https://linkedin.com/in/enitan-ajayi
+- Email: enitan.ajayi.dev@gmail.com
+- CV / Resume: /resume.pdf

@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Project } from '../data/projects';
+
+export interface CaseStudyData {
+  project: Project;
+  context: string;
+  solution: string;
+  myRole: string;
+  architecture: {
+    frontend: string;
+    backend: string;
+    database: string;
+    services: string;
+  };
+  technicalDecisions: {
+    tech: string;
+    rationale: string;
+  }[];
+  challenges: string[];
+  lessons: string[];
+  futureImprovements: string[];
+  ruleBasedNotice?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+}
+
+interface Props {
+  data: CaseStudyData;
+}
+
+const { data } = Astro.props;
+const { project } = data;
+
+const pageTitle = data.metaTitle || `${project.title} | Ajayi Enitan Fiyinfoluwa`;
+const pageDescription = data.metaDescription || project.description;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="space-y-12 py-6">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="text-meta text-[var(--color-text-secondary)] font-mono">
+      <ol class="flex items-center gap-2 list-none p-0 m-0">
+        <li>
+          <a href="/#projects" class="hover:text-[var(--color-text-primary)] transition-colors">
+            Projects
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-[var(--color-border)]">/</li>
+        <li class="text-[var(--color-accent-text)] font-medium" aria-current="page">
+          {project.title}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Case Study Header -->
+    <header class="space-y-6 border-b border-[var(--color-border)] pb-8">
+      <div class="space-y-3">
+        <div class="inline-flex items-center gap-2">
+          <span class="text-label text-[var(--color-accent-text)] font-mono tracking-widest uppercase">
+            {project.type}
+          </span>
+          {project.featured && (
+            <span class="rounded-full bg-[var(--color-accent)]/10 px-2 py-0.5 text-[10px] font-mono font-medium text-[var(--color-accent-text)] border border-[var(--color-accent)]/20">
+              Flagship Project
+            </span>
+          )}
+        </div>
+        <h1 class="text-display font-extrabold text-[var(--color-text-primary)] tracking-tight">
+          {project.title}
+        </h1>
+        <p class="text-body text-[var(--color-text-secondary)] max-w-3xl leading-relaxed">
+          {project.description}
+        </p>
+      </div>
+
+      <!-- Technology Stack Badges -->
+      <div class="flex flex-wrap gap-2 text-meta text-[var(--color-text-secondary)] font-mono pt-2">
+        {project.technologies.map(tech => (
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-xs">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    <!-- Content Layout Grid (Sidebar + Main Article) -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <!-- Quick Navigation Sticky Sidebar (Desktop) -->
+      <aside class="hidden lg:block lg:col-span-1">
+        <nav aria-label="Case Study Sections" class="sticky top-24 space-y-3 text-meta font-mono border-l border-[var(--color-border)] pl-4">
+          <div class="text-label text-[var(--color-text-secondary)] uppercase tracking-wider mb-2 font-bold">
+            Sections
+          </div>
+          <a href="#overview" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">01. Overview</a>
+          <a href="#problem-solution" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">02. Problem & Solution</a>
+          <a href="#architecture" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">03. Architecture</a>
+          <a href="#technical-decisions" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">04. Technical Decisions</a>
+          <a href="#challenges" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">05. Challenges & Lessons</a>
+          <a href="#future" class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-text)] transition-colors">06. Future Roadmap</a>
+        </nav>
+      </aside>
+
+      <!-- Main Case Study Content -->
+      <article class="lg:col-span-3 space-y-12">
+        <!-- 01. Overview & Visual Treatment -->
+        <section id="overview" class="space-y-6">
+          <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-4">
+              <div class="flex items-center gap-3">
+                <div class="flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-accent)]/40 bg-[var(--color-background)] font-mono text-h3 font-bold text-[var(--color-accent-text)]">
+                  {project.initials}
+                </div>
+                <div>
+                  <h3 class="text-h3 font-bold text-[var(--color-text-primary)]">{project.title} Architecture Preview</h3>
+                  <span class="text-meta text-[var(--color-text-secondary)]">Technical Case Study Specification</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="text-label text-[var(--color-text-secondary)] uppercase tracking-wider font-mono">
+                Verified System Capabilities
+              </h4>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-small text-[var(--color-text-primary)] list-none p-0 m-0 font-mono">
+                {project.features.map(feat => (
+                  <li class="flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)]/50 bg-[var(--color-background)] p-2.5">
+                    <span class="text-[var(--color-accent-text)]">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {data.ruleBasedNotice && (
+          <div class="rounded-[var(--radius-sm)] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 p-4 text-small text-[var(--color-text-primary)]">
+            <strong class="font-mono text-[var(--color-accent-text)] block mb-1">Architecture Clarification:</strong>
+            {data.ruleBasedNotice}
+          </div>
+        )}
+
+        <!-- 02. Problem & Solution -->
+        <section id="problem-solution" class="space-y-6">
+          <h2 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+            Context &amp; Solution
+          </h2>
+          <div class="space-y-4 text-body text-[var(--color-text-secondary)] leading-relaxed">
+            <h3 class="text-h3 font-semibold text-[var(--color-text-primary)]">The Challenge</h3>
+            <p>{data.context}</p>
+
+            <h3 class="text-h3 font-semibold text-[var(--color-text-primary)] pt-2">The Solution</h3>
+            <p>{data.solution}</p>
+
+            <h3 class="text-h3 font-semibold text-[var(--color-text-primary)] pt-2">My Role</h3>
+            <p>{data.myRole}</p>
+          </div>
+        </section>
+
+        <!-- 03. Technical Architecture -->
+        <section id="architecture" class="space-y-6 pt-4 border-t border-[var(--color-border)]">
+          <h2 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+            Technical Architecture
+          </h2>
+          <p class="text-body text-[var(--color-text-secondary)]">
+            The application follows a clean decoupled full-stack architecture with RESTful API communication between the client layer and data persistence services.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center font-mono">
+            <div class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2">
+              <div class="text-label text-[var(--color-accent-text)]">Client Layer</div>
+              <div class="text-small font-bold text-[var(--color-text-primary)]">{data.architecture.frontend}</div>
+            </div>
+            <div class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2">
+              <div class="text-label text-[var(--color-accent-text)]">API Server</div>
+              <div class="text-small font-bold text-[var(--color-text-primary)]">{data.architecture.backend}</div>
+            </div>
+            <div class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2">
+              <div class="text-label text-[var(--color-accent-text)]">Database</div>
+              <div class="text-small font-bold text-[var(--color-text-primary)]">{data.architecture.database}</div>
+            </div>
+            <div class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2">
+              <div class="text-label text-[var(--color-accent-text)]">Services</div>
+              <div class="text-small font-bold text-[var(--color-text-primary)]">{data.architecture.services}</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04. Technical Decisions -->
+        <section id="technical-decisions" class="space-y-6 pt-4 border-t border-[var(--color-border)]">
+          <h2 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+            Key Technical Decisions
+          </h2>
+          <div class="grid grid-cols-1 gap-4">
+            {data.technicalDecisions.map(item => (
+              <div class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-1">
+                <span class="font-mono text-small font-bold text-[var(--color-accent-text)]">
+                  {item.tech}
+                </span>
+                <p class="text-small text-[var(--color-text-secondary)] leading-relaxed">
+                  {item.rationale}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- 05. Challenges & Lessons -->
+        <section id="challenges" class="space-y-6 pt-4 border-t border-[var(--color-border)]">
+          <h2 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+            Challenges &amp; What I Learned
+          </h2>
+          
+          <div class="space-y-4">
+            <h3 class="text-h3 font-semibold text-[var(--color-text-primary)]">Engineering Challenges</h3>
+            <ul class="space-y-2 text-body text-[var(--color-text-secondary)] list-disc list-inside">
+              {data.challenges.map(ch => (
+                <li>{ch}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="space-y-4 pt-2">
+            <h3 class="text-h3 font-semibold text-[var(--color-text-primary)]">Key Takeaways</h3>
+            <ul class="space-y-2 text-body text-[var(--color-text-secondary)] list-disc list-inside">
+              {data.lessons.map(les => (
+                <li>{les}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <!-- 06. Future Roadmap -->
+        <section id="future" class="space-y-6 pt-4 border-t border-[var(--color-border)]">
+          <h2 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+            Future Improvements
+          </h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-small text-[var(--color-text-secondary)] list-none p-0 m-0 font-mono">
+            {data.futureImprovements.map(imp => (
+              <li class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3">
+                → {imp}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Back to Projects CTA -->
+        <div class="pt-8 border-t border-[var(--color-border)]">
+          <a 
+            href="/#projects" 
+            class="inline-flex items-center gap-2 text-small font-semibold text-[var(--color-accent-text)] hover:underline focus-visible:outline-none"
+          >
+            ← Back to Selected Work
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</Layout>

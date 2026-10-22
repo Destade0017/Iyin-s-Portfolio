@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import { projects } from '../data/projects';
+import { experiences } from '../data/experience';
+
+const featuredProjects = projects.filter(p => p.featured);
+const secondaryProjects = projects.filter(p => !p.featured);
+
+const primaryExperiences = experiences.filter(e => !e.isSecondary);
+const secondaryExperiences = experiences.filter(e => e.isSecondary);
+---
+
+<Layout 
+  title="Ajayi Enitan Fiyinfoluwa | Frontend Developer & Web Developer"
+  description="Ajayi Enitan Fiyinfoluwa is a Frontend Developer and Web Developer based in Lagos, Nigeria specializing in responsive web applications, React, PHP backends, and modern UI engineering."
+>
+  <!-- Hero Section with Portrait, Bio, CTAs & Tech Badges -->
+  <Hero />
+
+  <!-- Services & Capabilities Section -->
+  <Services />
+
+  <!-- Selected Projects Section -->
+  <section id="projects" class="py-16 sm:py-24 space-y-12 border-b border-[var(--color-border)]">
+    <div class="max-w-2xl space-y-3">
+      <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest">
+        SELECTED WORK
+      </div>
+      <h2 class="text-h1 font-bold text-[var(--color-text-primary)] tracking-tight">
+        Featured &amp; Built Projects
+      </h2>
+      <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+        A selection of responsive React web applications, dynamic PHP/MySQL platforms, and REST API integrations built with high standards of usability, speed, and clean code.
+      </p>
+    </div>
+
+    <!-- Flagship Featured Projects Grid -->
+    <div class="space-y-6">
+      <h3 class="text-label font-mono text-[var(--color-text-secondary)] tracking-wider uppercase">
+        Flagship Case Studies
+      </h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {featuredProjects.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+
+    <!-- Secondary Projects Grid -->
+    <div class="space-y-6 pt-6">
+      <h3 class="text-label font-mono text-[var(--color-text-secondary)] tracking-wider uppercase">
+        Other Noteworthy Projects
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {secondaryProjects.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Technologies Section -->
+  <Skills />
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 sm:py-24 space-y-12 border-b border-[var(--color-border)]">
+    <div class="max-w-2xl space-y-3">
+      <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest">
+        CAREER PATH
+      </div>
+      <h2 class="text-h1 font-bold text-[var(--color-text-primary)] tracking-tight">
+        Experience
+      </h2>
+      <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+        Frontend engineering internships, client web development projects, and academic software leadership.
+      </p>
+    </div>
+
+    <!-- Main Frontend / Web Roles Timeline -->
+    <div class="space-y-8 max-w-3xl">
+      {primaryExperiences.map(item => (
+        <ExperienceItem item={item} />
+      ))}
+    </div>
+
+    <!-- Secondary Prior Work Experience -->
+    {secondaryExperiences.length > 0 && (
+      <div class="space-y-6 max-w-3xl pt-6 border-t border-[var(--color-border)]/60">
+        <h3 class="text-label font-mono text-[var(--color-text-secondary)] tracking-wider uppercase">
+          Earlier Experience &amp; Tutoring
+        </h3>
+        <div class="space-y-6">
+          {secondaryExperiences.map(item => (
+            <ExperienceItem item={item} />
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+
+  <!-- About Section (Biography, Education & Academic Achievements) -->
+  <About />
+
+  <!-- Contact & Collaboration Section -->
+  <Contact />
+</Layout>

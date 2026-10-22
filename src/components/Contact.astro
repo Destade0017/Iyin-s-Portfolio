@@ -1,0 +1,118 @@
+---
+const CONTACT_EMAIL = "enitan.ajayi.dev@gmail.com";
+const RESUME_PATH = "/resume.pdf";
+const GITHUB_URL = "https://github.com/enitan-ajayi";
+const LINKEDIN_URL = "https://linkedin.com/in/enitan-ajayi";
+---
+
+<section id="contact" class="py-16 sm:py-24 space-y-12">
+  <div class="max-w-2xl space-y-3">
+    <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest">
+      GET IN TOUCH
+    </div>
+    <h2 class="text-h1 font-bold text-[var(--color-text-primary)] tracking-tight">
+      Let's Connect &amp; Collaborate
+    </h2>
+    <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+      Whether you have an open frontend developer role, a website project in need of a modern overhaul, or just want to discuss web engineering, my inbox is open!
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+    <!-- Main Contact Action Card (7 Cols) -->
+    <div class="lg:col-span-7 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 sm:p-10 space-y-6 flex flex-col justify-between shadow-xs">
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] text-xs font-mono text-[var(--color-text-secondary)]">
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Open to Opportunities · Lagos &amp; Remote</span>
+        </div>
+
+        <h3 class="text-h2 font-extrabold text-[var(--color-text-primary)]">
+          Ready to build something impactful together?
+        </h3>
+
+        <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+          I am available for full-time frontend developer roles, contracts, and freelance projects. Let's discuss how my web development skills can support your team's roadmap.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--color-border)]/60">
+        <a 
+          href={`mailto:${CONTACT_EMAIL}`}
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-accent)] px-6 font-semibold text-white hover:opacity-90 transition-opacity shadow-sm"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Send an Email
+        </a>
+
+        <a 
+          href={RESUME_PATH}
+          target="_blank"
+          download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf"
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-6 font-semibold text-[var(--color-text-primary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent-text)] transition-colors shadow-xs"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[var(--color-accent-text)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+
+    <!-- Direct Details & Channels Card (5 Cols) -->
+    <div class="lg:col-span-5 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 sm:p-10 space-y-6 flex flex-col justify-between">
+      <div class="space-y-6">
+        <h4 class="text-h3 font-bold text-[var(--color-text-primary)] border-b border-[var(--color-border)]/60 pb-3">
+          Contact Channels
+        </h4>
+
+        <div class="space-y-4 text-small">
+          <div>
+            <span class="text-label text-[var(--color-text-secondary)] block font-mono">Email</span>
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-body font-semibold text-[var(--color-accent-text)] hover:underline break-all">
+              {CONTACT_EMAIL}
+            </a>
+          </div>
+
+          <div>
+            <span class="text-label text-[var(--color-text-secondary)] block font-mono">Location</span>
+            <span class="text-body text-[var(--color-text-primary)]">
+              Lagos, Nigeria (UTC+1 / Remote friendly)
+            </span>
+          </div>
+
+          <div>
+            <span class="text-label text-[var(--color-text-secondary)] block font-mono">Profiles</span>
+            <div class="flex items-center gap-4 pt-1">
+              <a 
+                href={GITHUB_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1.5 font-mono text-meta text-[var(--color-text-primary)] hover:text-[var(--color-accent-text)] transition-colors"
+              >
+                <span>GitHub</span>
+                <span class="text-xs">↗</span>
+              </a>
+              <span class="text-[var(--color-border)]">•</span>
+              <a 
+                href={LINKEDIN_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1.5 font-mono text-meta text-[var(--color-text-primary)] hover:text-[var(--color-accent-text)] transition-colors"
+              >
+                <span>LinkedIn</span>
+                <span class="text-xs">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-background)] border border-[var(--color-border)] text-xs text-[var(--color-text-secondary)] leading-relaxed">
+        💡 <strong class="text-[var(--color-text-primary)]">Quick response:</strong> Expect a reply within 24 hours on business days.
+      </div>
+    </div>
+  </div>
+</section>

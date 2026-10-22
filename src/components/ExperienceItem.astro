@@ -1,0 +1,56 @@
+---
+import type { Experience } from '../data/experience';
+
+interface Props {
+  item: Experience;
+}
+
+const { item } = Astro.props;
+const isCurrent = item.date.includes("Present");
+---
+
+<div class={`relative border-l border-[var(--color-border)] pl-6 sm:pl-8 space-y-3 ${item.isSecondary ? 'opacity-75' : ''}`}>
+  <!-- Timeline Node Marker -->
+  <div 
+    class={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-[var(--color-background)] ${isCurrent ? 'bg-[var(--color-accent)] ring-2 ring-[var(--color-accent)]/30' : 'bg-[var(--color-text-secondary)]/50'}`}
+    aria-hidden="true"
+  ></div>
+
+  <!-- Header: Role, Company, Location & Date -->
+  <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+    <div>
+      <h3 class="text-h3 font-bold text-[var(--color-text-primary)]">
+        {item.role}
+      </h3>
+      <div class="text-small font-medium text-[var(--color-accent-text)] pt-0.5">
+        {item.company} <span class="text-[var(--color-text-secondary)] font-normal">· {item.location}</span>
+      </div>
+    </div>
+    <div class="text-meta text-[var(--color-text-secondary)] font-mono whitespace-nowrap">
+      {item.date}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <p class="text-body text-[var(--color-text-secondary)]">
+    {item.description}
+  </p>
+
+  <!-- Responsibilities Bullet Points -->
+  <ul class="space-y-1.5 text-small text-[var(--color-text-secondary)] list-disc list-inside p-0 m-0">
+    {item.responsibilities.map(resp => (
+      <li>{resp}</li>
+    ))}
+  </ul>
+
+  <!-- Associated Technologies -->
+  {item.technologies && item.technologies.length > 0 && (
+    <div class="flex flex-wrap gap-2 pt-2 text-meta text-[var(--color-text-secondary)] font-mono">
+      {item.technologies.map(tech => (
+        <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-0.5 text-xs">
+          {tech}
+        </span>
+      ))}
+    </div>
+  )}
+</div>

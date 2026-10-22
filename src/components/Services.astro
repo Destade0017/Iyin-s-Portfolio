@@ -1,0 +1,97 @@
+---
+interface ServiceItem {
+  number: string;
+  title: string;
+  description: string;
+  tags: string[];
+  icon: string;
+}
+
+const services: ServiceItem[] = [
+  {
+    number: "01",
+    title: "Frontend Web Development",
+    description: "Building fast, standards-compliant, and interactive user interfaces using modern HTML5, CSS3, JavaScript (ES6+), and React.",
+    tags: ["React", "JavaScript", "Responsive Design", "Modern CSS"],
+    icon: "code"
+  },
+  {
+    number: "02",
+    title: "UI/UX to Code Implementation",
+    description: "Translating wireframes and visual prototypes from Canva and Figma into pixel-perfect, clean, and accessible web experiences.",
+    tags: ["Canva", "Figma to Code", "Accessibility", "Design Systems"],
+    icon: "palette"
+  },
+  {
+    number: "03",
+    title: "REST API Integration",
+    description: "Connecting client-side web applications to backend REST APIs, third-party platforms, authentication flows, and real-time data feeds.",
+    tags: ["RESTful APIs", "JSON", "Fetch / Axios", "Asynchronous JS"],
+    icon: "plug"
+  },
+  {
+    number: "04",
+    title: "Full-Stack Web & PHP Solutions",
+    description: "Developing practical data-driven web applications with PHP backends, form handling, and MySQL database persistence.",
+    tags: ["PHP", "MySQL", "CRUD Systems", "Form Validation"],
+    icon: "database"
+  },
+  {
+    number: "05",
+    title: "Responsive Redesign & Modernization",
+    description: "Transforming rigid or outdated websites into sleek, mobile-friendly interfaces utilizing Bootstrap and modern layout architectures.",
+    tags: ["Bootstrap", "CSS Grid & Flexbox", "Mobile First", "Cross-Browser"],
+    icon: "device"
+  },
+  {
+    number: "06",
+    title: "Website Optimization & Maintenance",
+    description: "Auditing page load speed, debugging frontend issues, updating content, and improving SEO ranking factors for client websites.",
+    tags: ["Performance Audits", "Bug Fixes", "SEO Basics", "Maintenance"],
+    icon: "zap"
+  }
+];
+---
+
+<section id="services" class="py-16 sm:py-24 border-b border-[var(--color-border)] space-y-12">
+  <div class="max-w-2xl space-y-3">
+    <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest">
+      SERVICES &amp; CAPABILITIES
+    </div>
+    <h2 class="text-h1 font-bold text-[var(--color-text-primary)] tracking-tight">
+      What I Bring to the Table
+    </h2>
+    <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+      A blend of creative problem-solving, clean code architecture, and technical precision to design, build, and optimize web applications.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {services.map((service) => (
+      <div class="group relative rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4 hover:border-[var(--color-accent)] transition-all duration-200 hover:-translate-y-1 shadow-2xs">
+        <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-3">
+          <span class="font-mono text-meta text-[var(--color-accent-text)] font-semibold">
+            {service.number}
+          </span>
+          <span class="h-2 w-2 rounded-full bg-[var(--color-border)] group-hover:bg-[var(--color-accent)] transition-colors"></span>
+        </div>
+
+        <h3 class="text-h3 font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-text)] transition-colors">
+          {service.title}
+        </h3>
+
+        <p class="text-small text-[var(--color-text-secondary)] leading-relaxed">
+          {service.description}
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-1.5">
+          {service.tags.map((tag) => (
+            <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2 py-0.5 text-xs font-mono text-[var(--color-text-secondary)]">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

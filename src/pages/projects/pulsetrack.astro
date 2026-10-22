@@ -1,0 +1,45 @@
+---
+import CaseStudy from '../../components/CaseStudy.astro';
+import type { CaseStudyData } from '../../components/CaseStudy.astro';
+import { projects } from '../../data/projects';
+
+const pulsetrackProject = projects.find(p => p.id === 'pulsetrack')!;
+
+const pulsetrackData: CaseStudyData = {
+  project: pulsetrackProject,
+  metaTitle: "PulseTrack Case Study | Ajayi Enitan Fiyinfoluwa",
+  metaDescription: "An intuitive healthcare management dashboard enabling patient appointment booking, real-time vital metrics visualization, and asynchronous API data fetching.",
+  context: "Patients and clinics often face delayed communications, double-booked appointments, and fragmented health record visibility when relying on manual appointment books or static portals.",
+  solution: "PulseTrack unifies patient scheduling, healthcare metric visualization, and appointment status notifications into a single, high-contrast, accessible web dashboard.",
+  myRole: "I led the frontend architecture and UI implementation, establishing the design prototype in Canva, developing interactive components in React, integrating chart libraries, and wiring asynchronous REST APIs.",
+  architecture: {
+    frontend: "React + Custom CSS3 & Utility Styling",
+    backend: "RESTful API Integration",
+    database: "JSON / Cloud Data Mock Store",
+    services: "Chart.js Visualization + Async Data Fetch"
+  },
+  technicalDecisions: [
+    { tech: "React", rationale: "Component modularity allows separation between patient profile cards, appointment booking modals, and analytics widgets." },
+    { tech: "Chart.js", rationale: "Enables interactive, accessible visual representation of patient vital statistics over daily, weekly, and monthly timelines." },
+    { tech: "Asynchronous REST APIs", rationale: "Implements optimistic UI updates and responsive loading skeletons during appointment booking requests." },
+    { tech: "Canva UI Prototyping", rationale: "Used to iterate on patient card layouts, contrast ratios, and accessible color schemes prior to development." }
+  ],
+  challenges: [
+    "Building an accessible time-slot reservation system that validates appointment overlaps on the client side before sending API payloads.",
+    "Formatting dynamic time-series health data smoothly into responsive Chart.js canvases across varying screen sizes.",
+    "Ensuring WCAG color contrast compliance across light and dark clinical dashboard views."
+  ],
+  lessons: [
+    "Handling loading, error, and empty states gracefully to boost user trust in health web apps.",
+    "Optimizing re-renders in React when dashboard time-range filters change rapidly.",
+    "Building reusable modal and form components with robust client-side validation."
+  ],
+  futureImprovements: [
+    "Automated SMS/Email appointment confirmation reminders.",
+    "Patient document upload portal for medical lab test results.",
+    "Doctor consultation video call integration."
+  ]
+};
+---
+
+<CaseStudy data={pulsetrackData} />

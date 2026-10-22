@@ -1,0 +1,111 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article 
+  class={`group relative flex flex-col justify-between rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8 transition-all duration-200 hover:border-[var(--color-accent-text)]/40 hover:-translate-y-0.5 ${project.featured ? 'lg:p-8' : ''}`}
+>
+  <div class="space-y-6">
+    <!-- Top Technical Header / Visual Badge -->
+    <div class="flex items-center justify-between gap-4 border-b border-[var(--color-border)]/60 pb-4">
+      <div class="flex items-center gap-3">
+        <!-- Technical Initials Avatar -->
+        <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] font-mono text-small font-bold text-[var(--color-text-primary)] group-hover:border-[var(--color-accent)] transition-colors">
+          {project.initials}
+        </div>
+        <div>
+          <span class="text-label text-[var(--color-accent-text)] tracking-wider font-mono">
+            {project.type}
+          </span>
+          {project.featured && (
+            <span class="ml-2 inline-flex items-center rounded-full bg-[var(--color-accent)]/10 px-2 py-0.5 text-[10px] font-mono font-medium text-[var(--color-accent-text)] border border-[var(--color-accent)]/20">
+              Flagship Project
+            </span>
+          )}
+        </div>
+      </div>
+
+      <!-- Structural Step Identifier -->
+      <span class="font-mono text-meta text-[var(--color-text-secondary)]/40" aria-hidden="true">
+        0{project.id === 'novamart' ? '1' : project.id === 'pulsetrack' ? '2' : project.id === 'flowtask' ? '3' : '4'}
+      </span>
+    </div>
+
+    <!-- Title & Description -->
+    <div class="space-y-3">
+      <h3 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight group-hover:text-[var(--color-accent-text)] transition-colors">
+        {project.title}
+      </h3>
+      <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
+        {project.description}
+      </p>
+    </div>
+
+    <!-- Known Functionality Highlights -->
+    <div class="space-y-2 pt-2">
+      <span class="text-label text-[var(--color-text-secondary)] font-mono">Core Features:</span>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-small text-[var(--color-text-secondary)] list-none p-0 m-0">
+        {project.features.map(feature => (
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]/60" aria-hidden="true"></span>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-8 space-y-6 pt-4 border-t border-[var(--color-border)]/60">
+    <!-- Technology Stack Display -->
+    <div class="flex flex-wrap gap-2 text-meta text-[var(--color-text-secondary)] font-mono">
+      {project.technologies.map(tech => (
+        <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-xs">
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <!-- Action Links -->
+    <div class="flex flex-wrap items-center gap-4 pt-2">
+      {project.caseStudyUrl && (
+        <a 
+          href={project.caseStudyUrl}
+          class="inline-flex min-h-[44px] items-center gap-2 text-small font-semibold text-[var(--color-accent-text)] hover:underline focus-visible:outline-none"
+        >
+          Read Case Study
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      )}
+
+      {project.liveUrl && (
+        <a 
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-[44px] items-center gap-1.5 text-small font-medium text-[var(--color-text-primary)] hover:text-[var(--color-accent-text)] transition-colors focus-visible:outline-none"
+        >
+          Live Demo ↗
+        </a>
+      )}
+
+      {project.githubUrl && (
+        <a 
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-[44px] items-center gap-1.5 text-small font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors focus-visible:outline-none"
+        >
+          GitHub ↗
+        </a>
+      )}
+    </div>
+  </div>
+</article>

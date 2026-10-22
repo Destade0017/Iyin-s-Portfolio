@@ -1,0 +1,314 @@
+---
+const GITHUB_URL = "https://github.com/enitan-ajayi";
+const LINKEDIN_URL = "https://linkedin.com/in/enitan-ajayi";
+const RESUME_PATH = "/resume.pdf";
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/";
+---
+
+<div class="container-custom">
+  <div class="flex h-16 items-center justify-between gap-4">
+    <!-- Brand / Logo -->
+    <a 
+      href="/" 
+      class="flex items-center gap-2 group focus-visible:outline-none"
+      aria-label="Ajayi Enitan Fiyinfoluwa Homepage"
+    >
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent)] font-mono text-sm font-extrabold text-white group-hover:scale-105 transition-transform">
+        AE
+      </span>
+      <span class="text-small font-bold tracking-tight text-[var(--color-text-primary)] hidden sm:inline-block">
+        Enitan.dev
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-5">
+      <ul class="flex items-center gap-5 text-small font-medium list-none m-0 p-0">
+        <li>
+          <a 
+            href="/#projects" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#services" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            Services
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#skills" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            Skills
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#experience" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            Experience
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#about" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#contact" 
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors py-1"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <div class="h-4 w-px bg-[var(--color-border)]" aria-hidden="true"></div>
+
+      <!-- Desktop Resume Button & Socials -->
+      <div class="flex items-center gap-3">
+        <a 
+          href={RESUME_PATH}
+          target="_blank"
+          download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf"
+          class="inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] border border-[var(--color-accent)] bg-transparent px-3 py-1.5 text-xs font-semibold text-[var(--color-accent-text)] hover:bg-[var(--color-accent)] hover:text-white transition-all focus-visible:outline-none"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          CV / Resume
+        </a>
+
+        <!-- Theme Toggle Button -->
+        <button
+          id="theme-toggle-desktop"
+          type="button"
+          class="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-[var(--color-text-primary)] hover:border-[var(--color-text-secondary)] transition-colors"
+          aria-label="Switch to dark theme"
+        >
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="sun-icon-desktop" class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="moon-icon-desktop" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Controls (Resume Button + Hamburger + Theme) -->
+    <div class="flex items-center gap-2 lg:hidden">
+      <a 
+        href={RESUME_PATH}
+        target="_blank"
+        download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf"
+        class="inline-flex items-center gap-1 rounded-[var(--radius-sm)] border border-[var(--color-accent)] bg-transparent px-2.5 py-1.5 text-xs font-semibold text-[var(--color-accent-text)]"
+      >
+        CV
+      </a>
+
+      <button
+        id="theme-toggle-mobile"
+        type="button"
+        class="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-[var(--color-text-primary)] hover:border-[var(--color-text-secondary)] transition-colors"
+        aria-label="Switch to dark theme"
+      >
+        <svg id="sun-icon-mobile" class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+        <svg id="moon-icon-mobile" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </button>
+
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-[var(--color-text-primary)] hover:border-[var(--color-text-secondary)] transition-colors"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <!-- Menu Icon -->
+        <svg id="menu-open-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close Icon -->
+        <svg id="menu-close-icon" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div 
+    id="mobile-menu" 
+    class="hidden lg:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-5 space-y-4 rounded-b-[var(--radius-md)] shadow-lg"
+  >
+    <nav aria-label="Mobile Navigation">
+      <ul class="flex flex-col gap-2.5 text-body font-medium list-none m-0 p-0">
+        <li>
+          <a 
+            href="/#projects" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#services" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Services
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#skills" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Skills
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#experience" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Experience
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#about" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/#contact" 
+            class="block py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <hr class="border-[var(--color-border)] my-3" />
+
+    <div class="flex items-center justify-between pt-1">
+      <div class="flex items-center gap-4">
+        <a 
+          href={GITHUB_URL} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-meta text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+        >
+          GitHub ↗
+        </a>
+        <a 
+          href={LINKEDIN_URL} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-meta text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+
+      <a 
+        href={RESUME_PATH}
+        target="_blank"
+        download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf"
+        class="inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] bg-[var(--color-accent)] px-3 py-1.5 text-xs font-semibold text-white"
+      >
+        Download CV
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Theme Controller Logic
+    const themeToggleBtns = [
+      document.getElementById('theme-toggle-desktop'),
+      document.getElementById('theme-toggle-mobile')
+    ].filter(Boolean) as HTMLButtonElement[];
+
+    const updateThemeUI = (isDark: boolean) => {
+      document.querySelectorAll('#sun-icon-desktop, #sun-icon-mobile').forEach(el => {
+        el.classList.toggle('hidden', !isDark);
+      });
+      document.querySelectorAll('#moon-icon-desktop, #moon-icon-mobile').forEach(el => {
+        el.classList.toggle('hidden', isDark);
+      });
+
+      themeToggleBtns.forEach(btn => {
+        btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      });
+    };
+
+    const initialIsDark = document.documentElement.classList.contains('dark');
+    updateThemeUI(initialIsDark);
+
+    themeToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeUI(isDark);
+      });
+    });
+
+    // Mobile Navigation Logic
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    if (menuBtn && mobileMenu && openIcon && closeIcon) {
+      const toggleMenu = (show?: boolean) => {
+        const isExpanded = show !== undefined ? show : menuBtn.getAttribute('aria-expanded') !== 'true';
+        menuBtn.setAttribute('aria-expanded', String(isExpanded));
+        mobileMenu.classList.toggle('hidden', !isExpanded);
+        openIcon.classList.toggle('hidden', isExpanded);
+        closeIcon.classList.toggle('hidden', !isExpanded);
+      };
+
+      menuBtn.addEventListener('click', () => toggleMenu());
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(false);
+          menuBtn.focus();
+        }
+      });
+    }
+  });
+</script>

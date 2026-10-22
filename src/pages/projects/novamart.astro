@@ -1,0 +1,46 @@
+---
+import CaseStudy from '../../components/CaseStudy.astro';
+import type { CaseStudyData } from '../../components/CaseStudy.astro';
+import { projects } from '../../data/projects';
+
+const novamartProject = projects.find(p => p.id === 'novamart')!;
+
+const novamartData: CaseStudyData = {
+  project: novamartProject,
+  metaTitle: "NovaMart Case Study | Ajayi Enitan Fiyinfoluwa",
+  metaDescription: "A full-featured responsive e-commerce web application featuring product discovery, dynamic cart state management, and PHP backend processing.",
+  context: "Many growing online storefronts struggle with slow page loading speeds, clunky checkout flows, and non-responsive mobile designs that frustrate shoppers and decrease order completion rates.",
+  solution: "NovaMart solves these challenges with a modern, mobile-first frontend built in React, modular category filtering, instant client-side cart updates, and structured PHP REST endpoints for order handling and inventory syncing.",
+  myRole: "I architected the application end-to-end, designing the UI wireframes in Canva, coding responsive UI components in React and Bootstrap, and implementing the PHP REST API and MySQL database schemas.",
+  architecture: {
+    frontend: "React + Bootstrap 5 + Modern CSS",
+    backend: "PHP RESTful API",
+    database: "MySQL (Relational Inventory & Orders)",
+    services: "REST Endpoints + Local Cart State"
+  },
+  technicalDecisions: [
+    { tech: "React", rationale: "Delivers smooth client-side interactions, instant filtering, and responsive state synchronization across the product grid and shopping cart drawer." },
+    { tech: "Bootstrap 5", rationale: "Accelerates grid-based responsive design while allowing bespoke styling tokens and clean component typography." },
+    { tech: "PHP REST API", rationale: "Provides lightweight, performant server endpoints for order creation, customer requests, and inventory updates without heavy server overhead." },
+    { tech: "MySQL", rationale: "Structured relational schema guaranteeing data consistency between product records, pricing, and checkout receipts." },
+    { tech: "Canva UI Wireframes", rationale: "Enabled rapid prototyping of layout visual hierarchy, banner spacing, and shopping flow prior to coding." }
+  ],
+  challenges: [
+    "Managing seamless state synchronization between dynamic category filters, product searches, and active shopping cart counters.",
+    "Ensuring zero layout shifts and high mobile touch responsiveness during dynamic image rendering across product grids.",
+    "Handling CORS and secure payload verification between the React client and the PHP backend endpoints."
+  ],
+  lessons: [
+    "Structuring clean separation of concerns between client UI state and server persistence.",
+    "Techniques for defensive API request handling and informative user error states.",
+    "Designing mobile-first layouts that look equally polished on smartphones and wide desktop screens."
+  ],
+  futureImprovements: [
+    "Integration of live Paystack or Flutterwave payment gateway processing.",
+    "Customer review submission and star-rating analytics.",
+    "User wishlist and automated abandoned cart reminders."
+  ]
+};
+---
+
+<CaseStudy data={novamartData} />

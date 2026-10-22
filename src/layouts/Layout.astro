@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const SITE_URL = Astro.site ? Astro.site.origin : "https://enitan-ajayi.dev";
+
+const { 
+  title = "Ajayi Enitan Fiyinfoluwa | Frontend Developer & Web Developer", 
+  description = "Ajayi Enitan Fiyinfoluwa is a Frontend Developer and Web Developer based in Lagos, Nigeria specializing in responsive web applications, React, PHP backends, and modern UI engineering.",
+  ogImage = `${SITE_URL}/portrait.jpg`,
+  ogType = "website"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+const GITHUB_URL = "https://github.com/enitan-ajayi";
+const LINKEDIN_URL = "https://linkedin.com/in/enitan-ajayi";
+const RESUME_PATH = "/resume.pdf";
+
+const isHomepage = Astro.url.pathname === "/";
+
+// Factual JSON-LD structured data for Person and ProfilePage
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ajayi Enitan Fiyinfoluwa",
+  "jobTitle": "Frontend Developer & Web Developer",
+  "url": SITE_URL,
+  "sameAs": [
+    GITHUB_URL,
+    LINKEDIN_URL
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "University Degree Program",
+    "description": "B.Sc. Computer Science, Second Class Upper Honors"
+  },
+  "knowsAbout": [
+    "Frontend Engineering",
+    "Web Development",
+    "HTML5 & CSS3",
+    "JavaScript ES6+",
+    "React",
+    "Bootstrap 5",
+    "PHP",
+    "MySQL",
+    "RESTful APIs",
+    "Canva UI/UX Prototyping",
+    "Responsive Design"
+  ]
+};
+
+const profilePageJsonLd = isHomepage ? {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2026-01-01T00:00:00Z",
+  "mainEntity": personJsonLd
+} : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f1d38" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Title & Meta Description -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Ajayi Enitan Fiyinfoluwa" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Ajayi Enitan Fiyinfoluwa Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+    {profilePageJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(profilePageJsonLd)} />
+    )}
+
+    <!-- Anti-FOUT theme script -->
+    <script is:inline>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col justify-between bg-[var(--color-background)] text-[var(--color-text-primary)] transition-colors duration-150">
+    <a href="#main-content" class="skip-to-content">
+      Skip to main content
+    </a>
+
+    <!-- Sticky Header Navigation -->
+    <header class="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-background)]/90 backdrop-blur-md">
+      <Navbar />
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="container-custom flex-grow py-8">
+      <slot />
+    </main>
+
+    <!-- Minimal Semantic Footer -->
+    <footer class="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-8 text-meta text-[var(--color-text-secondary)]">
+      <div class="container-custom flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; {new Date().getFullYear()} Ajayi Enitan Fiyinfoluwa. All rights reserved.</p>
+        <div class="flex items-center gap-5">
+          <a href={RESUME_PATH} target="_blank" download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf" class="hover:text-[var(--color-accent-text)] transition-colors">
+            Resume ↗
+          </a>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-text-primary)] transition-colors">
+            GitHub ↗
+          </a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-text-primary)] transition-colors">
+            LinkedIn ↗
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

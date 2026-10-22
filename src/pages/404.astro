@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 — Page Not Found | Ajayi Enitan Fiyinfoluwa">
+  <div class="min-h-[60vh] flex flex-col items-center justify-center text-center space-y-6 py-12">
+    <div class="font-mono text-label text-[var(--color-accent-text)] tracking-widest">
+      ERROR 404
+    </div>
+    <h1 class="text-display font-extrabold text-[var(--color-text-primary)]">
+      Page Not Found
+    </h1>
+    <p class="text-body text-[var(--color-text-secondary)] max-w-md">
+      The page or resource you are looking for does not exist or has been moved.
+    </p>
+    <div class="pt-4">
+      <a 
+        href="/"
+        class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-accent)] px-6 font-medium text-white hover:opacity-90 transition-opacity focus-visible:outline-none"
+      >
+        ← Return Home
+      </a>
+    </div>
+  </div>
+</Layout>
