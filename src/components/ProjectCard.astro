@@ -6,39 +6,210 @@ interface Props {
 }
 
 const { project } = Astro.props;
+
+// Mock URLs for browser frame display
+const mockUrls: Record<string, string> = {
+  novamart: "novamart-store.web.app",
+  pulsetrack: "pulsetrack-health.io",
+  flowtask: "flowtask-board.internal",
+  swiftnews: "swiftnews-portal.com"
+};
+
+const browserUrl = mockUrls[project.id] || `${project.id}.dev`;
 ---
 
 <article 
-  class={`group relative flex flex-col justify-between rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8 transition-all duration-200 hover:border-[var(--color-accent-text)]/40 hover:-translate-y-0.5 ${project.featured ? 'lg:p-8' : ''}`}
+  class={`group relative flex flex-col justify-between rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7 transition-all duration-300 hover:border-[var(--color-accent)] hover:-translate-y-1 hover:shadow-lg ${project.featured ? 'lg:p-7' : ''}`}
 >
-  <div class="space-y-6">
-    <!-- Top Technical Header / Visual Badge -->
-    <div class="flex items-center justify-between gap-4 border-b border-[var(--color-border)]/60 pb-4">
-      <div class="flex items-center gap-3">
-        <!-- Technical Initials Avatar -->
-        <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] font-mono text-small font-bold text-[var(--color-text-primary)] group-hover:border-[var(--color-accent)] transition-colors">
-          {project.initials}
-        </div>
-        <div>
-          <span class="text-label text-[var(--color-accent-text)] tracking-wider font-mono">
-            {project.type}
+  <div class="space-y-5">
+    <!-- Top Meta Bar: Technical Type & Numbering -->
+    <div class="flex items-center justify-between gap-4 border-b border-[var(--color-border)]/60 pb-3.5">
+      <div class="flex items-center gap-2.5">
+        <span class="text-label text-[var(--color-accent-text)] tracking-wider font-mono text-xs font-semibold">
+          {project.type}
+        </span>
+        {project.featured && (
+          <span class="inline-flex items-center rounded-full bg-[var(--color-accent)]/10 px-2 py-0.5 text-[10px] font-mono font-medium text-[var(--color-accent-text)] border border-[var(--color-accent)]/20">
+            ★ Flagship Case Study
           </span>
-          {project.featured && (
-            <span class="ml-2 inline-flex items-center rounded-full bg-[var(--color-accent)]/10 px-2 py-0.5 text-[10px] font-mono font-medium text-[var(--color-accent-text)] border border-[var(--color-accent)]/20">
-              Flagship Project
-            </span>
-          )}
-        </div>
+        )}
       </div>
 
       <!-- Structural Step Identifier -->
-      <span class="font-mono text-meta text-[var(--color-text-secondary)]/40" aria-hidden="true">
+      <span class="font-mono text-meta text-[var(--color-text-secondary)]/50" aria-hidden="true">
         0{project.id === 'novamart' ? '1' : project.id === 'pulsetrack' ? '2' : project.id === 'flowtask' ? '3' : '4'}
       </span>
     </div>
 
+    <!-- Visual Browser Mockup Frame (Item #1 Improvement) -->
+    <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-background)] overflow-hidden shadow-2xs group-hover:border-[var(--color-accent)]/40 transition-colors">
+      <!-- Browser Chrome Header Bar with 3 traffic lights and URL bar -->
+      <div class="flex items-center justify-between px-3 py-2 border-b border-[var(--color-border)] bg-[var(--color-muted)]/40 text-xs">
+        <div class="flex items-center gap-1.5" aria-hidden="true">
+          <span class="h-2.5 w-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+        </div>
+
+        <div class="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-mono text-[10px]">
+          <svg class="h-2.5 w-2.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+          </svg>
+          <span class="truncate max-w-[160px] sm:max-w-none">{browserUrl}</span>
+        </div>
+
+        <div class="w-7"></div>
+      </div>
+
+      <!-- Interactive Viewport Mockup UI depending on project ID -->
+      <div class="p-3.5 sm:p-4 select-none group-hover:scale-[1.01] transition-transform duration-300">
+        {project.id === 'novamart' && (
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-[var(--color-text-primary)] text-xs tracking-tight">NovaMart</span>
+                <span class="text-[9px] px-1.5 py-0.5 rounded bg-[var(--color-accent)]/10 text-[var(--color-accent-text)] font-mono font-medium">React + PHP</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="h-5 w-20 sm:w-28 rounded bg-[var(--color-surface)] border border-[var(--color-border)] px-1.5 flex items-center text-[9px] text-[var(--color-text-secondary)] font-mono">Search items...</div>
+                <span class="px-2 py-0.5 rounded bg-[var(--color-accent)] text-white text-[9px] font-mono font-semibold">Cart (2)</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2">
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 space-y-1">
+                <div class="h-9 rounded bg-gradient-to-br from-[var(--color-accent)]/15 to-transparent flex items-center justify-center text-sm">👟</div>
+                <div class="text-[10px] font-bold text-[var(--color-text-primary)] truncate">Urban Runner</div>
+                <div class="flex justify-between items-center text-[9px]">
+                  <span class="font-mono text-[var(--color-accent-text)] font-semibold">$89.00</span>
+                  <span class="text-[8px] text-emerald-600 font-mono">In Stock</span>
+                </div>
+              </div>
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 space-y-1">
+                <div class="h-9 rounded bg-gradient-to-br from-indigo-500/15 to-transparent flex items-center justify-center text-sm">🎧</div>
+                <div class="text-[10px] font-bold text-[var(--color-text-primary)] truncate">Studio Bass</div>
+                <div class="flex justify-between items-center text-[9px]">
+                  <span class="font-mono text-[var(--color-accent-text)] font-semibold">$120.00</span>
+                  <span class="text-[8px] text-emerald-600 font-mono">In Stock</span>
+                </div>
+              </div>
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 space-y-1">
+                <div class="h-9 rounded bg-gradient-to-br from-sky-500/15 to-transparent flex items-center justify-center text-sm">⌚</div>
+                <div class="text-[10px] font-bold text-[var(--color-text-primary)] truncate">Pulse Fit V2</div>
+                <div class="flex justify-between items-center text-[9px]">
+                  <span class="font-mono text-[var(--color-accent-text)] font-semibold">$145.00</span>
+                  <span class="text-[8px] text-emerald-600 font-mono">In Stock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {project.id === 'pulsetrack' && (
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-bold text-[var(--color-text-primary)] text-xs">Patient Health Dashboard</span>
+              </div>
+              <span class="text-[9px] font-mono text-[var(--color-accent-text)] bg-[var(--color-accent)]/10 px-1.5 py-0.5 rounded font-medium">Telemedicine Active</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 space-y-0.5">
+                <div class="flex items-center justify-between text-[9px] text-[var(--color-text-secondary)] font-mono">
+                  <span>Heart Rate</span>
+                  <span class="text-rose-500 font-bold">♥ 74 bpm</span>
+                </div>
+                <svg class="w-full h-8 mt-1 text-[var(--color-accent)]" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M0,15 L25,15 L32,5 L38,25 L44,10 L50,18 L55,15 L100,15" />
+                </svg>
+              </div>
+
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 space-y-1">
+                <div class="text-[9px] text-[var(--color-text-secondary)] font-mono">Next Medical Appointment</div>
+                <div class="text-[10px] font-bold text-[var(--color-text-primary)] truncate">Dr. Kemi Alabi (Cardiology)</div>
+                <div class="flex items-center justify-between pt-1 text-[9px]">
+                  <span class="font-mono text-[var(--color-text-secondary)]">Today, 2:30 PM</span>
+                  <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-mono text-[8px] font-semibold">Confirmed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {project.id === 'flowtask' && (
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-2">
+              <span class="font-bold text-[var(--color-text-primary)] text-xs">Agile Task Sprint Board</span>
+              <span class="text-[9px] font-mono text-[var(--color-text-secondary)]">PHP &amp; MySQL Connected</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2">
+              <div class="rounded bg-[var(--color-muted)]/50 p-1.5 space-y-1">
+                <div class="flex items-center justify-between text-[8px] font-mono text-[var(--color-text-secondary)]">
+                  <span>TO DO</span>
+                  <span class="px-1 rounded bg-[var(--color-surface)] font-semibold">2</span>
+                </div>
+                <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-1.5 text-[9px] font-medium text-[var(--color-text-primary)] shadow-2xs">
+                  Auth Setup
+                </div>
+              </div>
+
+              <div class="rounded bg-[var(--color-muted)]/50 p-1.5 space-y-1">
+                <div class="flex items-center justify-between text-[8px] font-mono text-[var(--color-accent-text)]">
+                  <span>IN PROGRESS</span>
+                  <span class="px-1 rounded bg-[var(--color-surface)] font-semibold">1</span>
+                </div>
+                <div class="rounded border border-[var(--color-accent)]/50 bg-[var(--color-surface)] p-1.5 text-[9px] font-medium text-[var(--color-text-primary)] shadow-2xs border-l-2 border-l-[var(--color-accent)]">
+                  REST Endpoints
+                </div>
+              </div>
+
+              <div class="rounded bg-[var(--color-muted)]/50 p-1.5 space-y-1">
+                <div class="flex items-center justify-between text-[8px] font-mono text-emerald-600">
+                  <span>DONE</span>
+                  <span class="px-1 rounded bg-[var(--color-surface)] font-semibold">4</span>
+                </div>
+                <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-1.5 text-[9px] font-medium text-[var(--color-text-secondary)] line-through">
+                  UI Grid Layout
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {project.id === 'swiftnews' && (
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between border-b border-[var(--color-border)]/60 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm">🌤️</span>
+                <span class="font-bold text-[var(--color-text-primary)] text-xs">Lagos 29°C</span>
+                <span class="text-[9px] text-[var(--color-text-secondary)] font-mono">· Partly Cloudy</span>
+              </div>
+              <span class="text-[9px] font-mono text-emerald-600 bg-emerald-500/10 px-1.5 py-0.5 rounded font-medium">Multi-API Live</span>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-2 flex items-center justify-between gap-2">
+                <div class="space-y-0.5">
+                  <span class="text-[8px] font-mono text-[var(--color-accent-text)] uppercase font-semibold">Breaking Technology</span>
+                  <div class="text-[10px] font-bold text-[var(--color-text-primary)] leading-tight">Modern Web Standards &amp; API Integration</div>
+                </div>
+                <span class="text-xs">⚡</span>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-[var(--color-text-secondary)] font-mono px-1">
+                <span>Latest sync: 2 mins ago</span>
+                <span class="text-[var(--color-accent-text)]">42 sources verified</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
     <!-- Title & Description -->
-    <div class="space-y-3">
+    <div class="space-y-2.5">
       <h3 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight group-hover:text-[var(--color-accent-text)] transition-colors">
         {project.title}
       </h3>
@@ -48,12 +219,12 @@ const { project } = Astro.props;
     </div>
 
     <!-- Known Functionality Highlights -->
-    <div class="space-y-2 pt-2">
-      <span class="text-label text-[var(--color-text-secondary)] font-mono">Core Features:</span>
+    <div class="space-y-2 pt-1">
+      <span class="text-label text-[var(--color-text-secondary)] font-mono text-xs">Core Features:</span>
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-small text-[var(--color-text-secondary)] list-none p-0 m-0">
         {project.features.map(feature => (
           <li class="flex items-center gap-2">
-            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]/60" aria-hidden="true"></span>
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]/80" aria-hidden="true"></span>
             <span>{feature}</span>
           </li>
         ))}
@@ -61,18 +232,18 @@ const { project } = Astro.props;
     </div>
   </div>
 
-  <div class="mt-8 space-y-6 pt-4 border-t border-[var(--color-border)]/60">
+  <div class="mt-6 space-y-5 pt-4 border-t border-[var(--color-border)]/60">
     <!-- Technology Stack Display -->
-    <div class="flex flex-wrap gap-2 text-meta text-[var(--color-text-secondary)] font-mono">
+    <div class="flex flex-wrap gap-1.5 text-meta text-[var(--color-text-secondary)] font-mono">
       {project.technologies.map(tech => (
-        <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-xs">
+        <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-0.5 text-xs">
           {tech}
         </span>
       ))}
     </div>
 
     <!-- Action Links -->
-    <div class="flex flex-wrap items-center gap-4 pt-2">
+    <div class="flex flex-wrap items-center gap-4 pt-1">
       {project.caseStudyUrl && (
         <a 
           href={project.caseStudyUrl}
