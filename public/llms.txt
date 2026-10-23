@@ -1,12 +1,13 @@
-# Ajayi Enitan Fiyinfoluwa — Frontend Developer & Web Developer
+# Enitan Fiyinfoluwa Ajayi — Frontend Developer & Web Developer
 
-Ajayi Enitan Fiyinfoluwa is an intermediate Frontend Developer and Web Developer based in Lagos, Nigeria. She specializes in building modern, responsive web applications, interactive React user interfaces, and dynamic web solutions using PHP, MySQL, and REST APIs.
+Enitan Fiyinfoluwa Ajayi is a Computer Science student at Caleb University with hands-on experience in front-end web development, RESTful API integration, and IT support. She specializes in building modern, responsive web applications using React.js, Vue.js, JavaScript, HTML5, CSS3, Bootstrap, and PHP.
 
 ## Primary Focus Areas
-- Frontend Engineering & UI/UX (React, JavaScript ES6+, HTML5, CSS3, Bootstrap 5)
+- Frontend Engineering & UI/UX (React.js, Vue.js, JavaScript ES6+, HTML5, CSS3, Bootstrap)
 - API Integration & Dynamic Web Apps (RESTful APIs, JSON, Asynchronous Data Fetching)
 - Backend & Database Integration (PHP, MySQL, CRUD Operations, Form Handling)
-- Design & Prototyping (Canva Wireframes, Figma to Code, Cross-Browser Optimization)
+- IT Infrastructure & Networking (IP Addressing, DHCP, Routers, Switches, Hyper-V Virtualization)
+- Design & Prototyping (Canva / Graphic Design, Wireframing, Component-Driven Architecture)
 
 ## Key Projects
 - NovaMart: Responsive modern e-commerce web platform with product filtering, dynamic cart state management, and PHP backend order processing.
@@ -14,14 +15,18 @@ Ajayi Enitan Fiyinfoluwa is an intermediate Frontend Developer and Web Developer
 - FlowTask: Collaborative task management platform with customizable workflow boards and persistent PHP/MySQL storage.
 - SwiftNews & Weather Portal: Fast, API-driven information portal aggregating live multi-service headlines with instant search.
 
-## Career & Experience
-- Apex Innovations & Tech Labs: Frontend Developer Intern (Lagos, Nigeria) — React, JavaScript, REST APIs, Bootstrap
-- Freelance & Digital Solutions: Web Developer (Contract / Projects) — HTML5, CSS3, PHP, MySQL, Bootstrap
-- Student Tech Society & Academic Projects: Web Projects Lead & Peer Mentor
+## Professional Experience
+- Newgate Medical Services Limited: IT Intern (Lagos, Nigeria) — Computer Networking, Hardware/OS Support, Hyper-V, Telemedicine Systems, Web Hosting (May 2025 – Aug 2025)
+- YAFP Nigeria Limited: IT Intern (Lagos, Nigeria) — Data Entry, Data Encryption & Backup (Apr 2024 – Jul 2024)
+
+## Education
+- Caleb University Imota, Lagos — BSc (Hons) Computer Science (2022–2026, Awaiting Result)
+- Alpha Training Support Academy (ATSA) — WASSCE (2015–2021)
 
 ## Verified Contact & Profiles
 - Site: https://enitan-ajayi.dev
-- GitHub: https://github.com/enitan-ajayi
-- LinkedIn: https://linkedin.com/in/enitan-ajayi
-- Email: enitan.ajayi.dev@gmail.com
+- GitHub: https://github.com/ajayienitan
+- LinkedIn: https://www.linkedin.com/in/enitan-ajayi-7830ab348?trk=contact-info
+- Email: ajayiiyinoluwa56@gmail.com
+- Tel: 07042496551 (+234 704 249 6551)
 - CV / Resume: /resume.pdf

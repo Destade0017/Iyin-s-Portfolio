@@ -6,20 +6,20 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend Engineering",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Bootstrap 5", "Responsive Design", "DOM Manipulation"]
+    title: "Front-End Development",
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "React.js", "Vue.js", "Bootstrap", "Component Architecture"]
   },
   {
     title: "Backend & APIs",
-    skills: ["PHP", "RESTful APIs", "API Integration", "JSON", "MySQL", "CRUD Operations", "Authentication Basics"]
+    skills: ["PHP (Hypertext Preprocessor)", "RESTful API Integration", "MySQL Databases", "JSON", "CRUD Systems"]
   },
   {
-    title: "Tools & Deployment",
-    skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "Netlify", "Chrome DevTools"]
+    title: "Networking & IT Infrastructure",
+    skills: ["Computer Networks (IP, DHCP)", "Routers & Switches", "Hardware & OS Troubleshooting", "Hyper-V Virtualization", "Data Encryption & Backup"]
   },
   {
-    title: "Creative & UI Design",
-    skills: ["Canva", "UI/UX Prototyping", "Wireframing", "Figma to Code", "Asset Optimization", "Design Systems"]
+    title: "Cloud, Tools & Creative",
+    skills: ["Web Hosting Administration", "Basic Cloud Infrastructure", "Canva / Graphic Design", "Git & GitHub", "Telemedicine Systems"]
   }
 ];
 ---
@@ -33,13 +33,13 @@ const skillCategories: SkillCategory[] = [
       Skills &amp; Technologies
     </h2>
     <p class="text-body text-[var(--color-text-secondary)] leading-relaxed">
-      A curated overview of the frontend libraries, backend scripting, database systems, and design tools I leverage to build dependable web software.
+      A comprehensive breakdown of my front-end libraries, backend scripting, IT infrastructure, networking, and creative design tools.
     </p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     {skillCategories.map(category => (
-      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4 hover:border-[var(--color-accent)] transition-all duration-150">
+      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4 hover:border-[var(--color-accent)] transition-all duration-150 shadow-2xs">
         <h3 class="text-h3 font-bold text-[var(--color-text-primary)] border-b border-[var(--color-border)]/60 pb-3">
           {category.title}
         </h3>

@@ -1,11 +1,55 @@
 ---
 const RESUME_PATH = "/resume.pdf";
+
+const certifications = [
+  {
+    title: "Front-End Web Development Training",
+    issuer: "New Horizons Nigeria",
+    category: "Web Development"
+  },
+  {
+    title: "IT Fundamentals (ITF+) – Setting Up & Using Computers",
+    issuer: "CompTIA / Caleb University",
+    category: "IT Foundations"
+  },
+  {
+    title: "Databases and Software Development",
+    issuer: "CUL Technologies (CompTIA Authorized Partner)",
+    category: "Software & Data"
+  },
+  {
+    title: "Data Analytics Essentials",
+    issuer: "Cisco Networking Academy",
+    category: "Data Analytics"
+  },
+  {
+    title: "Networking, Security, and Maintenance",
+    issuer: "CUL Technologies (CompTIA Authorized Partner)",
+    category: "Networking & Security"
+  },
+  {
+    title: "Cloud Computing Fundamentals",
+    issuer: "CUL Technologies (CompTIA Authorized Partner)",
+    category: "Cloud"
+  },
+  {
+    title: "Microsoft 365 Introduction",
+    issuer: "CUL Technologies (CompTIA Authorized Partner)",
+    category: "Productivity"
+  },
+  {
+    title: "Mastery of Information Technology Ethics",
+    issuer: "CUL Technologies (CompTIA Authorized Partner)",
+    category: "Professional Ethics"
+  }
+];
 ---
 
-<section id="about" class="py-16 sm:py-24 border-b border-[var(--color-border)] space-y-12">
+<section id="about" class="py-16 sm:py-24 border-b border-[var(--color-border)] space-y-16">
+  <!-- Section Title -->
   <div class="max-w-2xl space-y-3">
     <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest">
-      BIOGRAPHY &amp; ACADEMICS
+      BIOGRAPHY &amp; CREDENTIALS
     </div>
     <h2 class="text-h1 font-bold text-[var(--color-text-primary)] tracking-tight">
       About Me
@@ -16,29 +60,29 @@ const RESUME_PATH = "/resume.pdf";
     <!-- Narrative Body Paragraphs (7 Columns on Desktop) -->
     <div class="lg:col-span-7 space-y-5 text-body text-[var(--color-text-secondary)] leading-relaxed">
       <p>
-        I am <strong class="text-[var(--color-text-primary)]">Ajayi Enitan Fiyinfoluwa</strong>, a passionate <strong class="text-[var(--color-text-primary)]">Frontend &amp; Web Developer</strong> based in Lagos, Nigeria. I bridge the space between design creativity and technical execution to build clean, intuitive, and responsive web products.
+        I am <strong class="text-[var(--color-text-primary)]">Enitan Fiyinfoluwa Ajayi</strong>, a motivated Computer Science graduate based in Lagos, Nigeria with hands-on experience in front-end web development, RESTful API integration, and IT infrastructure support.
       </p>
 
       <p>
-        My technical foundation centers on <strong class="text-[var(--color-text-primary)]">HTML5, CSS3, JavaScript, React, Bootstrap</strong>, and full-stack integration with <strong class="text-[var(--color-text-primary)]">PHP, MySQL, and REST APIs</strong>. I take pride in writing modular, readable code, architecting accessible user journeys, and translating visual mockups from Canva and Figma into live digital experiences.
+        My technical passion lies in crafting responsive, accessible user interfaces using <strong class="text-[var(--color-text-primary)]">React.js, Vue.js, JavaScript (ES6+), HTML5, CSS3, and Bootstrap</strong>, complemented by server-side integration using <strong class="text-[var(--color-text-primary)]">PHP, MySQL, and REST APIs</strong>. I combine creative design skills with visual prototyping in <strong class="text-[var(--color-text-primary)]">Canva</strong> to engineer web solutions that look polished and perform smoothly.
       </p>
 
       <p>
-        I define my work through three principles: being <span class="font-medium text-[var(--color-text-primary)]">creative and innovative</span> in UI design, <span class="font-medium text-[var(--color-text-primary)]">professional and reliable</span> in communication and delivery, and <span class="font-medium text-[var(--color-text-primary)]">technical and detail-oriented</span> in code structure and performance.
+        Beyond web development, my internships at <strong class="text-[var(--color-text-primary)]">Newgate Medical Services</strong> and <strong class="text-[var(--color-text-primary)]">YAFP Nigeria</strong> gave me practical experience configuring computer networks (IP addressing, DHCP, routers, switches), administering web hosting &amp; cloud systems, deploying Hyper-V virtual machines, and managing data encryption and backup protocols.
       </p>
 
       <p>
-        Currently, I am actively seeking full-time and remote frontend engineering roles or impactful web development projects where I can contribute fresh energy, collaborate with engineering teams, and build products users love.
+        I take pride in my component-driven architecture approach, web performance optimization, and strong collaborative teamwork. I am actively seeking frontend engineering and web developer roles where I can contribute to production applications and continuously expand my technical expertise.
       </p>
 
-      <div class="pt-2 flex flex-wrap gap-3">
+      <div class="pt-3 flex flex-wrap gap-4">
         <a 
           href={RESUME_PATH}
           target="_blank"
-          download="Ajayi_Enitan_Fiyinfoluwa_Resume.pdf"
-          class="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 font-medium text-small text-[var(--color-text-primary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent-text)] transition-colors"
+          download="Enitan_Fiyinfoluwa_Ajayi_CV.pdf"
+          class="inline-flex items-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-accent)] px-5 py-2.5 font-semibold text-small text-white hover:opacity-90 transition-opacity shadow-sm"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[var(--color-accent-text)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
           Download Official CV
@@ -46,11 +90,10 @@ const RESUME_PATH = "/resume.pdf";
       </div>
     </div>
 
-    <!-- Education & Academic Achievements (5 Columns on Desktop) -->
+    <!-- Education Block (5 Columns on Desktop) -->
     <div class="lg:col-span-5 space-y-6">
-      <!-- Education Card -->
-      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4">
-        <div class="flex items-center gap-2">
+      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4 shadow-2xs">
+        <div class="flex items-center gap-2.5">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[var(--color-accent-text)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"></path>
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
@@ -58,42 +101,100 @@ const RESUME_PATH = "/resume.pdf";
           <h3 class="text-h3 font-bold text-[var(--color-text-primary)]">Education</h3>
         </div>
 
-        <div class="space-y-2 border-t border-[var(--color-border)]/60 pt-3">
-          <h4 class="text-small font-bold text-[var(--color-text-primary)]">B.Sc. in Computer Science</h4>
-          <div class="text-meta text-[var(--color-accent-text)] font-mono">University Degree Program · Lagos, Nigeria</div>
-          <div class="text-meta text-[var(--color-text-secondary)] font-mono">Graduating Class of 2026</div>
-          <div class="pt-1">
-            <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-xs font-mono text-[var(--color-text-primary)]">
-              Second Class Upper Honors
-            </span>
+        <div class="space-y-4 border-t border-[var(--color-border)]/60 pt-4">
+          <!-- Caleb University -->
+          <div class="space-y-1">
+            <div class="flex items-baseline justify-between gap-2">
+              <h4 class="text-small font-bold text-[var(--color-text-primary)]">
+                BSc (Hons) Computer Science
+              </h4>
+              <span class="text-meta text-[var(--color-text-secondary)] font-mono text-xs">
+                2022 – 2026
+              </span>
+            </div>
+            <div class="text-small font-medium text-[var(--color-accent-text)]">
+              Caleb University Imota, Lagos
+            </div>
+            <div class="pt-1">
+              <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2 py-0.5 text-xs font-mono text-[var(--color-text-secondary)]">
+                Awaiting Result
+              </span>
+            </div>
+          </div>
+
+          <hr class="border-[var(--color-border)]/50" />
+
+          <!-- High School -->
+          <div class="space-y-1">
+            <div class="flex items-baseline justify-between gap-2">
+              <h4 class="text-small font-bold text-[var(--color-text-primary)]">
+                WASSCE Certificate
+              </h4>
+              <span class="text-meta text-[var(--color-text-secondary)] font-mono text-xs">
+                2015 – 2021
+              </span>
+            </div>
+            <div class="text-small text-[var(--color-text-secondary)]">
+              Alpha Training Support Academy (ATSA)
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Academic Achievements Card -->
-      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4">
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[var(--color-accent-text)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-          </svg>
-          <h3 class="text-h3 font-bold text-[var(--color-text-primary)]">Academic Achievements</h3>
+      <!-- Core Soft Skills Badge Card -->
+      <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-3">
+        <h4 class="text-small font-bold text-[var(--color-text-primary)] font-mono uppercase tracking-wider text-xs">
+          Engineering Practices &amp; Strengths
+        </h4>
+        <div class="flex flex-wrap gap-2 pt-1 text-xs font-mono">
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-[var(--color-text-primary)]">
+            Component-Driven Architecture
+          </span>
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-[var(--color-text-primary)]">
+            Performance Optimization
+          </span>
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-[var(--color-text-primary)]">
+            RESTful Integration
+          </span>
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-[var(--color-text-primary)]">
+            Time &amp; Project Management
+          </span>
+          <span class="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-background)] px-2.5 py-1 text-[var(--color-text-primary)]">
+            Team Collaboration
+          </span>
         </div>
-
-        <ul class="space-y-3 border-t border-[var(--color-border)]/60 pt-3 text-small text-[var(--color-text-secondary)] list-none p-0 m-0">
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-text)] font-mono font-bold mt-0.5">✦</span>
-            <span><strong class="text-[var(--color-text-primary)]">Excellence in Web Systems &amp; Software Design:</strong> Recognized for top-tier coursework performance in database design and client-side computing.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-text)] font-mono font-bold mt-0.5">✦</span>
-            <span><strong class="text-[var(--color-text-primary)]">Capstone Project Distinction:</strong> Engineered a full-featured web platform with complete user authentication and responsive layout.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-text)] font-mono font-bold mt-0.5">✦</span>
-            <span><strong class="text-[var(--color-text-primary)]">Mentorship Leadership:</strong> Organized peer tutorial sessions helping fellow students master HTML, CSS, JavaScript, and Git fundamentals.</span>
-          </li>
-        </ul>
       </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Certifications & Professional Trainings Grid -->
+  <div class="space-y-6 pt-6 border-t border-[var(--color-border)]/60">
+    <div class="space-y-2">
+      <div class="text-label text-[var(--color-accent-text)] font-mono tracking-widest text-xs">
+        VERIFIED CREDENTIALS
+      </div>
+      <h3 class="text-h2 font-bold text-[var(--color-text-primary)] tracking-tight">
+        Trainings, Awards &amp; Certifications
+      </h3>
+      <p class="text-small text-[var(--color-text-secondary)]">
+        Professional programs completed through industry institutions including New Horizons Nigeria, Cisco Networking Academy, and CompTIA authorized partners.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {certifications.map((cert) => (
+        <div class="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2 hover:border-[var(--color-accent)] transition-all">
+          <span class="inline-block rounded-[var(--radius-sm)] bg-[var(--color-accent)]/10 px-2 py-0.5 text-[10px] font-mono font-medium text-[var(--color-accent-text)] border border-[var(--color-accent)]/20">
+            {cert.category}
+          </span>
+          <h4 class="text-small font-bold text-[var(--color-text-primary)] leading-snug">
+            {cert.title}
+          </h4>
+          <div class="text-xs font-mono text-[var(--color-text-secondary)]">
+            {cert.issuer}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -11,57 +11,32 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "Frontend Developer Intern",
-    company: "Apex Innovations & Tech Labs",
+    role: "IT Intern (B.Sc. Industrial Training)",
+    company: "Newgate Medical Services Limited",
     location: "Lagos, Nigeria",
-    date: "January 2026 – Present",
-    description: "Developing modern, interactive user interfaces and connecting web applications to backend REST APIs in an agile engineering team.",
+    date: "May 2025 – August 2025",
+    description: "Supported medical IT infrastructure, enterprise networking, telemedicine systems, and web hosting administration as part of the B.Sc. Computer Science requirements.",
     responsibilities: [
-      "Build modular, reusable frontend UI components using React, JavaScript (ES6+), and modern CSS.",
-      "Integrate RESTful API endpoints for dynamic user authentication, live data queries, and asynchronous form submissions.",
-      "Collaborate with designers to convert Canva and Figma wireframes into pixel-perfect, responsive web pages.",
-      "Perform cross-browser compatibility testing and optimize client-side performance for mobile devices."
+      "Configured and troubleshot organizational computer networks, including IP addressing, DHCP, routers, and switches.",
+      "Diagnosed and resolved hardware, software, and Windows operating system issues across clinical and administrative workstations.",
+      "Configured Hyper-V virtual machines and server/client environments to support operational IT workflows.",
+      "Installed, configured, and maintained biometric authentication devices and telemedicine systems for hospital operations.",
+      "Assisted with routine cloud infrastructure, web hosting administration, and server maintenance tasks."
     ],
-    technologies: ["React", "JavaScript", "REST APIs", "Bootstrap", "Git", "Canva"]
+    technologies: ["Networking (DHCP/Routers/Switches)", "Hyper-V", "Telemedicine Systems", "Web Hosting", "Windows Administration"]
   },
   {
-    role: "Web Developer (Contract / Projects)",
-    company: "Freelance & Digital Solutions",
-    location: "Lagos, Nigeria (Remote)",
-    date: "July 2025 – December 2025",
-    description: "Delivered custom responsive websites and web application features for small business clients and digital brands.",
-    responsibilities: [
-      "Engineered full-stack business websites using HTML5, CSS3, JavaScript, PHP, and MySQL database backends.",
-      "Redesigned legacy web pages into mobile-first, high-converting layouts using modern Bootstrap and CSS Grid/Flexbox.",
-      "Integrated third-party APIs including email delivery services and payment/booking gateways.",
-      "Conducted website audits to improve page loading speed, SEO structure, and usability."
-    ],
-    technologies: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Bootstrap"]
-  },
-  {
-    role: "Web Projects Lead & Tech Community Mentor",
-    company: "Student Tech Society & Academic Projects",
+    role: "IT Intern",
+    company: "YAFP Nigeria Limited",
     location: "Lagos, Nigeria",
-    date: "September 2024 – June 2025",
-    description: "Directed web development teams on academic capstone projects and led hands-on coding workshops for computer science students.",
+    date: "April 2024 – July 2024",
+    description: "Assisted in enterprise IT support, routine system backup management, data encryption, and digital data entry operations.",
     responsibilities: [
-      "Led the design and architecture of university project management and event registration web applications.",
-      "Mentored junior students in core web fundamentals including HTML, CSS, JavaScript, and Git version control.",
-      "Organized code review sessions and ensured adherence to web accessibility and clean coding standards."
+      "Managed confidential digital records with data encryption protocols and secure storage practices.",
+      "Conducted routine database and system data backups to ensure organizational data integrity.",
+      "Accurately input, validated, and processed operational data across company information systems."
     ],
-    technologies: ["JavaScript", "HTML/CSS", "Git", "PHP", "UI/UX Design"],
+    technologies: ["Data Encryption", "Data Backup & Recovery", "System Administration", "Database Records"],
     isSecondary: false
-  },
-  {
-    role: "Academic Instructor & STEM Tutor",
-    company: "Excel Educational Center",
-    location: "Lagos, Nigeria",
-    date: "January 2024 – August 2024",
-    description: "Taught computational thinking, basic computer literacy, and mathematics to secondary students.",
-    responsibilities: [
-      "Developed structured lesson plans and practical exercises on computing concepts.",
-      "Guided students in collaborative problem-solving and foundational logic exercises."
-    ],
-    isSecondary: true
   }
 ];

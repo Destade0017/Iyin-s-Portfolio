@@ -27,6 +27,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     caseStudyUrl: "/projects/novamart",
+    githubUrl: "https://github.com/ajayienitan",
     initials: "NM"
   },
   {
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     caseStudyUrl: "/projects/pulsetrack",
+    githubUrl: "https://github.com/ajayienitan",
     initials: "PT"
   },
   {
@@ -58,6 +60,7 @@ export const projects: Project[] = [
       "Clean Component-Based Layout"
     ],
     featured: false,
+    githubUrl: "https://github.com/ajayienitan",
     initials: "FT"
   },
   {
@@ -73,6 +76,7 @@ export const projects: Project[] = [
       "Cross-Browser Mobile Optimization"
     ],
     featured: false,
+    githubUrl: "https://github.com/ajayienitan",
     initials: "SN"
   }
 ];
