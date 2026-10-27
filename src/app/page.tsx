@@ -42,13 +42,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#0B0D12] selection:bg-[#142B4A] selection:text-white flex flex-col font-sans">
-      {/* Top Notification Bar */}
-      <div className="bg-[#142B4A] text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
-        <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>
-          Seeking Graduate Internships & Junior Front-End Roles · First-Class B.Sc. Computer Science
-        </span>
-      </div>
 
       {/* Sticky Navigation */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[rgba(11,13,18,0.08)] shadow-xs">
@@ -80,9 +73,6 @@ export default function Home() {
             </a>
             <a href="#education" className="hover:text-[#142B4A] transition-colors">
               Education & Certs
-            </a>
-            <a href="#resume" className="hover:text-[#142B4A] transition-colors">
-              Resume
             </a>
             <a href="#contact" className="hover:text-[#142B4A] transition-colors">
               Contact
@@ -148,13 +138,6 @@ export default function Home() {
               className="block text-[#0B0D12] py-1"
             >
               Education & Certifications
-            </a>
-            <a
-              href="#resume"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-[#0B0D12] py-1"
-            >
-              Resume
             </a>
             <a
               href="#contact"
@@ -761,83 +744,6 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* RESUME / CV SECTION & AUDIT */}
-        <section id="resume" className="py-20 md:py-28 bg-[#FFFFFF]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="p-8 sm:p-12 rounded-3xl bg-[#0B0D12] text-white relative overflow-hidden shadow-xl">
-              <div className="relative z-10 max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-400 text-xs font-semibold mb-6">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Verified 1-Page ATS Resume · Updated & Bug-Free</span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-                  Curriculum Vitae / Resume
-                </h2>
-
-                <p className="text-zinc-300 text-base leading-relaxed mb-8">
-                  The official CV for Ajayi Enitan Fiyinfoluwa has been fully audited, cleaned, and
-                  streamlined into an executive, single-page ATS-optimized document. All previous
-                  bugs, header typos, inverted dates, and skill misclassifications have been
-                  thoroughly corrected.
-                </p>
-
-                {/* Bug Fixes Summary Box */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-8">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">
-                    Resume Audit & Corrections Applied:
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-300">
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Fixed header typo (PROFESIONAL → PROFESSIONAL)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Reordered experience to reverse-chronological (2025 before 2024)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Updated degree status to First-Class CS Graduate</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Moved Component Architecture & Performance to Technical Skills</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Fixed LinkedIn URL format and added international phone prefix</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>Fitted neatly onto 1 A4 page with zero text clipping</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <a
-                    href="/Ajayi_Enitan_CV.pdf"
-                    download="Ajayi_Enitan_CV.pdf"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[#0B0D12] hover:bg-zinc-100 text-sm font-bold transition-all shadow-md"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Download CV (PDF)</span>
-                  </a>
-
-                  <button
-                    onClick={() => setCvModalOpen(true)}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 text-white hover:bg-white/20 text-sm font-semibold transition-all border border-white/10"
-                  >
-                    <Eye className="w-4 h-4" />
-                    <span>View CV in Modal</span>
-                  </button>
                 </div>
               </div>
             </div>
